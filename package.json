@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "ts-node-dev --experimental-worker --respawn --transpile-only src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node-dev --experimental-worker --respawn --transpile-only src/app.ts"
   },
   "license": "MIT",
   "dependencies": {
