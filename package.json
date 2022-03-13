@@ -2,10 +2,11 @@
   "name": "seren-slack-bot",
   "version": "2.0.0",
   "description": "Slack bot for seren",
-  "main": "app.js",
+  "main": "dist/src/app.js",
   "scripts": {
     "dev": "ts-node-dev --experimental-worker --respawn --transpile-only src/app.ts",
-    "start": "ts-node-dev --experimental-worker --respawn --transpile-only src/app.ts"
+    "build": "tsc ",
+    "start": "node -r tsconfig-paths/register ."
   },
   "license": "MIT",
   "dependencies": {
@@ -20,6 +21,7 @@
     "mongoose": "^5.13.11",
     "pino": "^7.0.2",
     "pino-pretty": "^7.1.0",
+    "tsconfig-paths": "^3.13.0",
     "zod": "^3.9.8"
   },
   "devDependencies": {
