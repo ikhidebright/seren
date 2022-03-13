@@ -11,8 +11,9 @@ export async function addQuestions(
   try {
     const body = req.body as QuestionDocument;
     let typeExist = await getQuestionByType(body.type);
-    if (typeExist)
+    if (typeExist) {
       throw new AlreadyExists("Sorry type of question already exist");
+    }
     await createQuestions(body);
     return res.send("Questions Added Successfully");
   } catch (error) {
