@@ -1,19 +1,24 @@
-import { Express, Request, Response } from "express";
 import {
   addQuestions,
   getQuestionByTypeC,
+  editQuestions,
 } from "./controllers/questions.controller";
 
 import {
   getAllUserResponses,
   addUserResponses,
 } from "./controllers/userResponses.controller";
+import {
+  createQuestionData,
+  editQuestionData,
+} from "./schema/questions.schema";
+import express, { NextFunction, Response } from "express";
 
-function routes(app: Express) {
-  app.post("/api/questions", addQuestions);
-  app.post("/api/questions/:type", getQuestionByTypeC);
-  app.get("/api/responses", getAllUserResponses);
-  app.post("/api/responses", addUserResponses);
-}
+const router = express.Router();
+router.post("/questions", createQuestionData, addQuestions);
+router.patch("/questions/:id", editQuestionData, editQuestions);
+router.post("/questions/:type", getQuestionByTypeC);
+router.get("/responses", getAllUserResponses);
+router.post("/responses", addUserResponses);
 
-export default routes;
+export default router;

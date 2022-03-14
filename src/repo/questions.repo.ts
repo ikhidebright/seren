@@ -15,3 +15,12 @@ export async function createQuestions(
   const question = await QuestionModel.create(questionData);
   return question;
 }
+
+export async function editQuestionsRepo(
+  id: string,
+  data: QuestionDocument
+): Promise<void> {
+  const filter = { _id: id };
+  const doc = await QuestionModel.findOneAndUpdate(filter, data);
+  return doc;
+}

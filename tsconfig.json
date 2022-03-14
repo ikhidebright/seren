@@ -16,5 +16,5 @@
       "@/*": ["src/*", "dist/*"]
     }
   },
-  "include": ["src/**/*", "/config"]
+  "include": ["src/**/*", "/config", "tests"]
 }
