@@ -1,16 +1,32 @@
 import { QuestionDocument } from "@/model/questions.model";
 
 export function formatSlackBlock(question: QuestionDocument) {
-  const block = {
-    options: question.options.map((item) => {
-      return {
-        text: {
+  const block = [
+    {
+      type: "section",
+      block_id: "section678",
+      text: {
+        type: "mrkdwn",
+        text: question.name,
+      },
+      accessory: {
+        action_id: "text1234",
+        type: "static_select",
+        placeholder: {
           type: "plain_text",
-          text: item,
+          text: "Choose answer",
         },
-        value: item,
-      };
-    }),
-  };
+        options: question.options.map((item) => {
+          return {
+            text: {
+              type: "plain_text",
+              text: item,
+            },
+            value: item,
+          };
+        }),
+      },
+    },
+  ];
   return block;
 }
