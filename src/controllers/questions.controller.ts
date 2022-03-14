@@ -27,7 +27,7 @@ export async function getQuestionByTypeC(
   try {
     const { type } = req.params;
     let question = await getQuestionByTypeService(type);
-    return res.send(question);
+    return res.status(200).send(question);
   } catch (error) {
     next(error);
   }
