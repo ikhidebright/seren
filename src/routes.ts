@@ -12,9 +12,15 @@ import {
   createQuestionData,
   editQuestionData,
 } from "./schema/questions.schema";
-import express, { NextFunction, Response } from "express";
+import express, { NextFunction, Response, Request } from "express";
 
 const router = express.Router();
+router.get(
+  "/auth/callback",
+  (req: Request, res: Response, next: NextFunction) => {
+    res.status(200).send("You have successfully added the seren bot 🎉🎉🎉");
+  }
+);
 router.post("/questions", createQuestionData, addQuestions);
 router.patch("/questions/:id", editQuestionData, editQuestions);
 router.post("/questions/:type", getQuestionByTypeC);
