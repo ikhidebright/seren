@@ -24,6 +24,8 @@ export async function getQuestionByTypeC(
   res: Response,
   next: NextFunction
 ) {
+  console.log("slslslslslslslslslslsl", req);
+
   try {
     const { type } = req.params;
     let question = await getQuestionByTypeService(type);

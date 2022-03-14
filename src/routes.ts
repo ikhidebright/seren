@@ -7,11 +7,7 @@ import {
 function routes(app: Express) {
   app.get("/check", (req: Request, res: Response) => res.sendStatus(200));
 
-  app.post(
-    "/api/questions",
-    // validateResource(createUserSchema),
-    addQuestions
-  );
+  app.post("/api/questions", addQuestions);
 
   app.post("/api/questions/:type", getQuestionByTypeC);
 }
