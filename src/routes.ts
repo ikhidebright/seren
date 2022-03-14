@@ -13,7 +13,7 @@ function routes(app: Express) {
     addQuestions
   );
 
-  app.get("/api/questions/:type", getQuestionByTypeC);
+  app.post("/api/questions/:type", getQuestionByTypeC);
 }
 
 export default routes;
