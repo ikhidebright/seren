@@ -1,7 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import { createQuestions, getQuestionByType } from "../repo/questions.repo";
 import { QuestionDocument } from "../model/questions.model";
-import AlreadyExists from "../exceptions/already-exists.exception";
+import {
+  addQuestionsService,
+  getQuestionByTypeService,
+} from "../services/question.service";
 
 export async function addQuestions(
   req: Request,
@@ -10,14 +12,23 @@ export async function addQuestions(
 ) {
   try {
     const body = req.body as QuestionDocument;
-    let typeExist = await getQuestionByType(body.type);
-    if (typeExist) {
-      throw new AlreadyExists("Sorry type of question already exist");
-    }
-    await createQuestions(body);
+    await addQuestionsService(body);
     return res.send("Questions Added Successfully");
   } catch (error) {
     next(error);
-    console.log(error);
+  }
+}
+
+export async function getQuestionByTypeC(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const { type } = req.params;
+    let question = await getQuestionByTypeService(type);
+    return res.send(question);
+  } catch (error) {
+    next(error);
   }
 }

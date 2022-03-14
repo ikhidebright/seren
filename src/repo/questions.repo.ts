@@ -5,9 +5,7 @@ export async function getQuestionByType(
   type: string
 ): Promise<QuestionDocument> {
   return await QuestionModel.findOne({
-    where: {
-      type: type,
-    },
+    type: type,
   });
 }
 

@@ -1,9 +1,13 @@
+// import dotenv from "dotenv";
+
+// dotenv.config();
+
 export default {
-  port: 1337,
+  port: process.env.PORT || 1337,
   dbUri:
     "mongodb+srv://orina:ChlctexrZNHIkvKt@seren.3gujk.mongodb.net/seren?retryWrites=true&w=majority",
-  slack_bot_token: "xoxb-3232086857762-3229201535157-LhbFjC3BnZkPfm9YHtkAvcof",
-  slack_signing_secret: "39b98bc0da6fb72ddbf29ac37a8821d8",
+  slack_bot_token: "xoxb-3232086857762-3229201535157-MEf0482taTtJT6LQ0bX9LagZ",
+  slack_signing_secret: "6a76bb7e29ad432867dd4c5bde388083",
   saltWorkFactor: 10,
   accessTokenTl: "15m",
   refreshTokenTl: "1y",
