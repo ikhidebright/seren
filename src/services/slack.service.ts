@@ -4,14 +4,14 @@ export function formatSlackBlock(question: QuestionDocument) {
   const block = [
     {
       type: "section",
-      block_id: "section678",
+      block_id: question._id,
       text: {
         type: "mrkdwn",
         text: question.name,
       },
       accessory: {
-        action_id: "text1234",
-        type: "static_select",
+        action_id: question.type,
+        type: question.slackInteractionType, // "static_select",
         placeholder: {
           type: "plain_text",
           text: "Choose answer",
