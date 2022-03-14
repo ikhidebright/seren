@@ -1,32 +1,22 @@
 import mongoose from "mongoose";
 
 export interface UserResponses {
-  type: string;
-  name: string;
-  options: string[];
-}
-
-export interface UserResponsesDocument
-  extends UserResponses,
-    mongoose.Document {
-  createdAt: Date;
-  updatedAt: Date;
+  username: string;
+  question: string;
+  answer: string[] | string;
 }
 
 const UserResponsesSchema = new mongoose.Schema(
   {
-    type: { type: String, required: true, unique: true },
-    name: { type: String, required: true },
-    options: { type: [String], required: true },
+    username: { type: String, required: true },
+    question: { type: String, required: true },
+    answer: { type: [String] || String, required: true },
   },
   {
     timestamps: true,
   }
 );
 
-const UserResponsesModel = mongoose.model<UserResponsesDocument>(
-  "UserResponses",
-  UserResponsesSchema
-);
+const UserModel = mongoose.model("User", UserResponsesSchema);
 
-export default UserResponsesModel;
+export default UserModel;

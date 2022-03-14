@@ -11,7 +11,7 @@ export function formatSlackBlock(question: QuestionDocument) {
       },
       accessory: {
         action_id: question.type,
-        type: question.slackInteractionType, // "static_select",
+        type: question.slackInteractionType,
         placeholder: {
           type: "plain_text",
           text: "Choose answer",

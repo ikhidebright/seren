@@ -4,12 +4,16 @@ import {
   getQuestionByTypeC,
 } from "./controllers/questions.controller";
 
+import {
+  getAllUserResponses,
+  addUserResponses,
+} from "./controllers/userResponses.controller";
+
 function routes(app: Express) {
-  app.get("/check", (req: Request, res: Response) => res.sendStatus(200));
-
   app.post("/api/questions", addQuestions);
-
   app.post("/api/questions/:type", getQuestionByTypeC);
+  app.get("/api/responses", getAllUserResponses);
+  app.post("/api/responses", addUserResponses);
 }
 
 export default routes;
